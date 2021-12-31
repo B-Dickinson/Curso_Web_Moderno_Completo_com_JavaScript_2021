@@ -28,13 +28,13 @@ const ferrari = {
 
 const volvo = {
     modelo: 'V24',
-    velMax: 300,
+    velMax: 300, // shadowing
     status(){
         return `O ${this.modelo} está correndo a ${super.status()}`
     }
 };
 
-Object.setPrototypeOf(ferrari, carro);
+Object.setPrototypeOf(ferrari, carro); // modifica o prototype de um objeto
 Object.setPrototypeOf(volvo, carro);
 
 console.log(ferrari);
