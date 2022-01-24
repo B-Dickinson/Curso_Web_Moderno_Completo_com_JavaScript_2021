@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Aninhada1</title>
+</head>
+<body>
+          <h1>Lista aninhada/Árvore</h1>
+      <ul type="square" class="tree">
+          <li>
+              <span wm-folder><a href>backend</a></span>
+              <ul type="disc">
+                  <li>
+                      <span wm-folder><a href>app</a></span>
+                      <ul>
+                           <li>produto.js</li> 
+                           <li>usuario.js</li> 
+                           <li>venda.js</li> 
+                      </ul>
+                  </li>
+                  <li>
+                      <span wm-folder><a href>config</a></span>
+                      <ul>
+                          <li>banco.js</li>
+                          <li>rotas.js</li>
+                          <li>servidor.js</li>
+                      </ul>
+                  </li>
+              </ul>
+          </li>
+          <li>
+              <span wm-folder><a href>frontend</a></span>
+              <ul type="disc">
+                   <li>
+                       <span wm-folder><a href>public</a></span>
+                       <ul>
+                           <li>app.css</li>
+                           <li>app.js</li>
+                           <li>index.html</li>
+                       </ul>
+                   </li> 
+              </ul>  
+          </li>
+      </ul>
+      
+      <link rel="stylesheet" href="http://files.cod3r.com.br/curso-web/tree.css">
+
+      <script>
+          document.querySelectorAll('[wm-folder]').forEach(folder =>{
+               folder.onclick = function(e){
+                    e.preventDefault();
+                    
+                    const ul = folder.nextElementSibling;
+                    ul.style.display = ul.style.display === 'none' ? 'block':'none';
+                } 
+            });
+      </script>
+</body>
+</html>
