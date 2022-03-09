@@ -1,0 +1,87 @@
+<br>
+<table>
+      <!-- 
+          
+        Informa o que representa essa tabela, pode servir como um título pra tabela.
+      -->
+      <caption>
+          <h3>Produtos</h3>
+      </caption> 
+      <thead>
+                <!-- tr = table row -->
+            <tr>
+                <!-- th = table head / colunas da tabela -->
+                <th>Produto</th>
+                <th>Preço</th>
+                <th>Quantidade</th>
+                <th>Total</th>
+            </tr>
+      </thead>
+      <tbody>
+                <!-- 
+                    no tbody eu tenho os dados da minha tabela.
+                 -->
+            
+                 <tr>
+                <!-- td = table data / dado ou célula -->
+                <td>iPad</td>
+                <td>3289,00</td>
+                <td>5</td>
+                <td>16445,00</td>
+            </tr>
+
+            <tr>
+                <td>Samsung S9</td>
+                <td>2649,00</td>
+                <td>8</td>
+                <td>21192,00</td>
+            </tr>
+
+      </tbody>
+      <tfoot>
+            <tr>
+                <td colspan="3">Total</td>
+                <td>37637,00</td>
+            </tr>
+      </tfoot>
+</table>
+
+<style>
+    body{
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    table {
+        /* 
+            define se as bordas da tabela devem ser recolhidas em uma única borda ou separadas como no HTML padrão.
+        */
+        border-collapse: collapse;
+        border: 2px solid black;
+        margin: auto;
+    }
+
+    caption {
+        border: 2px solid black;
+        border-bottom: 0px;
+        background-color: #dedede;
+    }
+
+    th,td {
+        padding: 10px;
+        border: 1px solid black;
+        text-align: center;
+    }
+
+    thead tr {
+        border-bottom: solid 3px #444;
+    }
+
+    tbody tr:hover {
+        background-color: #dedede;
+    }
+
+    tfoot {
+        background-color: #444;
+        color: white;
+        font-weight: bold;
+    }
+</style>

@@ -1,0 +1,83 @@
+<h1>Formulário</h1>
+
+<form method="post">
+    <!-- 
+        o input hidden é um input invisível ao browser
+        do cliente que guarda valores que não queremos
+        que apareça diretamente ao usuário.
+     -->
+    <input type="hidden" name="id" value="3">
+    
+    <input type="text" name="nome" placeholder="nome">
+    <input type="email" name="email" placeholder="email">
+    <input type="password" name="senha" placeholder="senha">
+    <textarea name="bio" cols="30" rows="10"></textarea>
+
+    <div>
+        <input type="radio" name="tipo" value="admin"> Admin
+        <input type="radio" name="tipo" value="regular"> Regular
+        <input type="radio" name="tipo" value="professor"> Professor
+    </div>
+
+    <div>
+        <input type="checkbox" name="ativo"> Ativo
+    </div>
+
+    <p>Estado:</p>
+
+    <select name="estado">
+        <option value="">Selecione</option>
+        <option value="ac">Acre</option>
+        <option value="ba">Bahia</option>
+        <option value="ce">Ceará</option>
+        <option value="ma">Maranhão</option>
+    </select>
+
+    <p>Interesses:</p>
+
+    <select name="interesses" multiple size="8">
+         <option value="js">JavaScript</option>   
+         <option value="java">Java</option>   
+         <option value="php">PHP</option>   
+         <option value="python">Python</option>   
+         <option value="go">Go</option>   
+         <option value="c">C</option>   
+    </select>
+
+    <!-- 
+        o button por padrão faz uma associação ao método que o
+        post se propõe a fazer, mas também podemos indicar qual
+        a action do form e qual o method por ele ...
+     -->
+    <button formaction="http://localhost:3003/usuarios">Incluir</button>
+    <button formaction="http://localhost:3003/usuarios/3">Alterar</button>
+</form> 
+
+<style>
+
+    form {
+        max-width: 600px;
+        margin: auto;
+        border: 1px solid black;
+        text-align: center;
+        padding: 30px 0px;
+        background-color: #dedede;
+    }
+
+    input,
+    textarea,
+    select {
+        display: block;
+        margin: auto;
+        margin-bottom: 15px;
+    }
+
+    textarea {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    input[type=radio],
+    input[type=checkbox]{
+        display: inline;
+    }
+</style>
