@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #7FD2C9;
+            font-family: cursive;
+        }
+        .container {
+            margin: auto;
+            max-width: 500px;
+            border: 10px solid #838383;
+            border-radius: 20px;
+        }
+
+        div {
+            font-size: 1.1em;
+            font-weight: bolder;
+        }
+
+/* ------------------------------------------ */        
+ 
+        /*     flex-nav config       */
+
+        .container .flex-nav {
+            display: flex;
+            align-items: center;
+            height: 40px;
+            background-color: #F5F5F5;
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
+        }
+
+        .flex-nav div {
+            width: 15px;
+            height: 15px;
+            border-radius: 20px;
+            margin: 8px;
+        }
+
+        #ball-one {
+            background-color: red;
+        }
+
+        #ball-two {
+            background-color: #FFA931;
+        }
+
+        #ball-three {
+            background-color: #00CA3D;
+        }
+
+        /* rows */
+
+        .rows {
+            display: flex;
+            flex-flow: column nowrap;
+            background-color: #fff;
+            padding: 5px;
+        }
+
+        .rows div > div{
+            border-radius: 5px;
+            border: 2px solid;
+        }
+
+        /* row1 */
+
+        .flexrow1 {
+            display: flex;
+        }
+        
+
+        .flexrow1 div {
+            margin: 5px;
+            flex-grow: 1;
+            display: flex;
+            height: 40px;
+            background-color: #70DC69;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* row2 */
+
+        .flexrow2 {
+            display: flex;
+            height: 200px;  
+        }
+
+        .flexrow2 div {
+            margin: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .flexrow2 div:nth-child(1){
+            background-color: #E5EC45;
+            flex-basis: 150px;
+        }  
+        
+        .flexrow2 div:nth-child(2){
+            flex-grow: 1;
+            background-color: #00DCEC;
+        }
+
+        /* row3 */
+
+        .flexrow3 {
+            display: flex;
+            height: 60px;
+        }
+
+        .flexrow3 div {
+            margin: 5px;
+            background-color: #FF8FF2;
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+    </style>
+</head>
+<body>
+      <div class="container">
+          <div class="flex-nav">
+              <div id="ball-one"></div>
+              <div id="ball-two"></div>
+              <div id="ball-three"></div>
+          </div>
+          <div class="rows">
+
+            <div class="flexrow1">
+                <div>Header</div>
+            </div>
+
+            <div class="flexrow2">
+                    <div>Menu</div>
+                    <div>Content</div>
+            </div>
+
+            <div class="flexrow3">
+                <div>Footer</div>
+            </div>
+
+          </div>
+
+      </div>
+</body>
+</html>

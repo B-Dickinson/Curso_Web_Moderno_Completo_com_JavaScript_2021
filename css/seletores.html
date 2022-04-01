@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Selectors</title>
+    <link rel="stylesheet" href="css/tag.css">
+    <style>
+/* 
+        Seletor Universal
+        *{
+            color: #ff0;
+            background-color: #f77;
+        } 
+*/
+/*        
+        Seletor de classes:
+
+        .tag {
+            color: #ff0;
+            background-color: #f77;            
+        } 
+*/
+
+/*  
+        Seletor de Id:
+        #aprovados {
+            color: #ff0;
+            background-color: #f77;            
+        } 
+
+*/
+/*  
+        Direct children
+
+        #aninhado > div {
+            color: #ff0;
+            background-color: #f77; 
+        } 
+        
+*/
+
+/*  
+        Descendant
+
+        #aninhado section {
+            color: #ff0;
+            background-color: #f77; 
+       }  
+*/
+
+/* 
+       Adjacent Child
+        p + ul {
+            color: #ff0;
+            background-color: #f77; 
+        }  
+        
+*/ 
+/*       
+        General Siblings
+        p ~ ol {
+            color: #ff0;
+            background-color: #f77; 
+        } 
+*/
+/*
+        Seletor de atributo
+
+        [feira] {
+            color: #ff0;
+            background-color: #f77; 
+        }
+
+        ou
+
+        passando seu valor tambémargin: 
+
+        [feira=casa] {
+            color: #ff0;
+            background-color: #f77; 
+        }
+
+        ou
+
+        [feira~= 'escritorio'] {
+            color: #ff0;
+            background-color: #f77; 
+        }
+
+        pega valores mesmo que
+        tenha espaco em seus nomes
+
+        ou
+
+        [feira*='sa'] {
+            color: #ff0;
+            background-color: #f77; 
+        }
+
+        pega o(s) atributos que tenham
+        'sa' em qualquer parte de seus
+        valores.
+
+    
+*/
+
+/*
+
+        span:nth-child(1)  {
+            color: #ff0;
+            background-color: #f77; 
+        }
+
+        pega o filho número 1 da tag pai
+        da hierarquia.
+
+        ou 
+        
+
+        section > span:nth-of-type(2){
+            color: #ff0;
+            background-color: #f77;            
+        }
+
+        pega o segundo elemento do tipo
+        span de dentro da section
+
+        
+*/
+
+        #aninhado section > p {
+            background-color: lightyellow;
+        }
+
+        p ~ ol {
+            background-color: lightcyan;
+        }
+
+        [feira*='s']{
+            background-color: lightpink;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class='tag'>
+        <div class='tag'>
+
+            <p class='tag'>1</p>
+
+            <ul class='tag' feira='casa'>
+                <li>Arroz</li>
+                <li>Feijão</li>
+            </ul>
+
+            <ul class='tag' feira='escritorio empresa'>
+                <li>Café</li>
+                <li>Água</li>
+            </ul>
+
+            <ol id='aprovados' class='tag'>
+                <li>Maria</li>
+                <li>Pedro</li>
+                <li>Ana</li>
+            </ol>
+
+            <div id='aninhado' class='tag'>
+                <div class="tag">
+                    <section class='tag'>
+                        <span class='tag'>1</span>
+                        <p class='tag'>2</p>
+                        <span class='tag'>3</span>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/tag.js"></script>
+</body>
+
+</html>

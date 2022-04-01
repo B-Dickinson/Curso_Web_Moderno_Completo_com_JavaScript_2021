@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid1</title>
+    <style>
+
+        *{
+            box-sizing: border-box;
+        }
+
+        .flex-container {
+            max-width: 450px;
+            box-sizing: content-box;
+            display: flex;
+            flex-flow: column nowrap;
+            border: 8px solid #838383;
+            border-radius: 16px;
+        }
+
+        .flex-nav {
+            display: flex;
+            height: 40px;
+            background-color: #D9D9D9;
+            align-items: center;
+            border-top-left-radius: 7px;
+            border-top-right-radius: 7px;
+        }
+
+        .flex-nav div {
+            width: 15px;
+            height: 15px;
+            margin: 8px;
+            border-radius: 20px;
+        }
+
+        .flex-nav > #ball-one {
+            background-color: #FF605B;
+        }
+
+        .flex-nav > #ball-two {
+            background-color: #FFC02B;
+        }
+
+        .flex-nav > #ball-three {
+            background-color: #00CA3D;
+        }
+
+        .grid-container {
+            display: grid;
+            padding: 3px;
+            grid-template-columns: repeat(7,1fr);
+            grid-template-rows: repeat(10,1fr);
+            background-color: #fff;
+            border-bottom-left-radius: 7px;
+            border-bottom-right-radius: 7px;
+        }
+
+        .grid-container div {
+            margin: 5px;
+        }
+
+        #one{
+            grid-column: 1 / span 4;
+            grid-row: 1 / span 2;
+        }
+        #two{
+            grid-column: 5 / span 3;
+            grid-row: 1 / span 2;
+        }
+        #one,#two {
+            background-color: #FF4945;
+            height: 60px;
+        }
+        #three{ 
+            background-color: #FFA931;
+            grid-area: 3 / 1 / span 6 / span 3;
+        }
+        #four{
+            grid-area: 3 / 4 / span 3 / span 4;
+        }
+
+        #five{grid-area: 6 / 4 / span 3 / span 4;}
+        #four,#five {background-color: #9B0579;}
+
+        #six{grid-area: 9 / 1 / span 2 / span 2;}
+        #seven{grid-area: 9 / 3 / span 2 / span 3;}
+        #eight{grid-area: 9 / 6 / span 2 / span 3;}
+
+        #six,#seven,#eight{background-color: #00778F;}
+
+    </style>
+</head>
+<body>
+    <div class="flex-container">
+        <div class="flex-nav">
+            <div id="ball-one"></div>
+            <div id="ball-two"></div>
+            <div id="ball-three"></div>
+        </div>
+        <div class="grid-container">
+            <div id="one"></div>
+            <div id="two"></div>
+            <div id="three"></div>
+            <div id="four"></div>
+            <div id="five"></div>
+            <div id="six"></div>
+            <div id="seven"></div>
+            <div id="eight"></div>
+        </div>
+    </div>
+</body>
+</html>

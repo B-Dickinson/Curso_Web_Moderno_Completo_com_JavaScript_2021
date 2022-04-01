@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Display</title>
+    <style>
+       body {
+           font-size: 40px;
+           color: #fff;
+           background-color: coral;
+           margin: 0;
+       }
+
+       ul{padding: 0;}
+       div{background-color: seagreen;}
+       span{background-color: dodgerblue;}
+       li{background-color: purple;}
+
+       div,span,li {
+           width: 130px;
+           height: 80px;
+           padding-top: 30px;
+           text-align: center;
+           display: inline-block;
+           border: solid 1px black;
+       }
+
+       div {
+           float: right;
+       }
+
+       span {
+           clear: right;
+           float: left;
+           margin-right: 10px;
+       }
+
+       ul {
+           clear:both;
+           float: right;
+       }
+
+    </style>
+</head>
+
+<body>
+    <div>Texto 1</div>
+    <span>Texto 2</span>
+    <span>Texto 3</span>
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+</body>
+
+</html>

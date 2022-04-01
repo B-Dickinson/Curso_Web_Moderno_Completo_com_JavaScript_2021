@@ -1,0 +1,46 @@
+.cabecalho {
+    display: flex;
+}
+
+.logo {
+    flex: 1 1 400px;
+    display: flex;
+}
+
+.menu {
+    flex: 1 1 400px;
+      margin: 0 15px;
+    display: flex;
+    align-items: center;
+}
+
+.menu ul {
+    width: 100%;
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-around;
+}
+
+
+.autenticacao {
+    flex: 1 3 400px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+@media(max-width:830px) {
+    .autenticacao {
+        display: none;
+    }
+}
+
+@media(max-width:620px) {
+    .menu {
+        display: none;
+    }
+
+    .logo {
+        justify-content: center;
+    }
+}

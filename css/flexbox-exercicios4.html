@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .container{
+            border: 2px solid;
+            margin: auto;
+            max-width: 1100px;
+            padding: 5px 0;
+            display: flex;
+            flex-flow: column nowrap;
+            gap: 25px;
+        }
+
+        .estendida, 
+        .container .row1 div,
+        .container .row2 div {
+            margin: 0 10px;
+            border: 2px solid;
+        }
+
+        .row1 {
+            display: flex;
+        }
+
+        .row1 div {
+            height: 300px;
+        }
+        
+        .row1 .destaque {
+            background-color: slateblue;
+            flex-grow: 1;
+        }
+
+        .row1 .destaque2{
+            background-color: lightsalmon;
+            flex: 0 0 230px;
+        }
+
+
+        .row2{
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .row2 div {
+            background-color: lightseagreen;
+            height: 130px;
+            flex-basis: 233px;
+        }
+
+        .row2 div:nth-child(2){
+            flex-grow: 1;
+        }
+
+        .estendida {
+            background-color: skyblue;
+            height: 60px;
+            flex-grow: 1;
+        }
+
+        @media(max-width:528px){
+            .row1 .destaque,
+            .row1 .destaque2 {
+                flex: 0 1 230px;
+            }
+        }
+        /* media para 528px manter
+           a medida de destaque */
+
+
+        @media(max-width:395px){
+
+            .row1 {
+                flex-direction: column;
+                align-items: center;
+                gap: 18px;
+            }
+
+            .destaque {
+                flex: 0 0 130px;
+                width: 130px;
+            }
+
+            .destaque2 {
+                flex: 0 0 130px;
+                width: 130px;
+            }
+
+            .row2 {
+                flex-direction: column;
+                align-items: center;
+                gap: 18px;
+            }
+
+            .row2 div {
+                flex:0 0 130px;
+                width: 130px;
+            }
+
+            .estendida {
+                align-self: center;
+                flex: 0 0 130px;
+                width: 130px;
+            }
+        }   
+    </style>
+</head>
+<body>
+      <div class="container">
+          <div class="row1">
+            <div class="destaque"></div>
+            <div class="destaque2"></div>
+          </div>
+          <div class="row2">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          <div class="estendida"></div>
+      </div>  
+</body>
+</html>

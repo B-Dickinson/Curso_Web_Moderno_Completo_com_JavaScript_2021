@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Float</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #222;
+            font-size: 30px;
+            margin: 0;
+        }
+
+        .c1 {
+            background-color: red;
+            float: left;
+        }
+
+        .c2 {
+            background-color: green;
+            clear: both;
+            float: right;
+        }
+        
+        .c3 {
+            background-color: blue;
+            clear: both;
+            float: left;
+        }
+
+        .c4 {
+            background-color: orange;
+            clear: both;
+            float: right;
+            margin-bottom: 100px;
+        }
+
+        .c5 {
+            display: block;
+            clear: both;
+            margin: auto;
+            margin-bottom: 100px;
+            width: 80%;
+            height: 300px;
+            background-color: white;
+        }
+
+        .c5 > p#q {
+            margin: 0 0 15px 0;
+            float: right;
+            border: 1px solid black;
+            padding: 5px;
+            font-size: 18px;
+            width: 100px;
+            background-color: lightcoral;
+            color: white;
+        }
+
+        .c5 > p {
+            clear: both;
+        }
+
+        .c5 > ul {
+            list-style-type: lower-alpha;
+            list-style-position: inside;
+            columns: 3;
+            padding: 0;
+        }
+
+        div { 
+            width: 150px;
+            height: 150px;
+            text-align: center;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="c1">1</div>
+    <div class="c2">2</div>
+    <div class="c3">3</div>
+    <div class="c4">4</div>
+    <div class="c5">
+        <p id="q">Questão 1</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit?</p>
+        <ul>
+            <li>X</li>
+            <li>Y</li>
+            <li>Z</li>
+        </ul>
+    </div>
+</body>
+
+</html>

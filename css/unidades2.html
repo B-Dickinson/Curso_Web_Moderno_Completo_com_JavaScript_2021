@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Unidades #02</title>
+    <style>
+        .fora {
+            position: relative;
+            background-color: orange;
+            width: 400px;
+            font-size: 10px;
+            height: 400px;
+        }
+
+        .dentro {
+            background-color: mediumvioletred;
+            height: 100px;
+            width: 100%;
+            position: static; /* conteudo */
+            position: relative; /* conteudo */
+            position: absolute; /* conteúdo + padding */
+            /* position:fixed; */ /* viewport */
+            text-align: center;
+        }
+
+        .dentro > p {
+            font-size: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="fora">
+        <div class="dentro">
+            <p>Hello, world</p>
+        </div>
+    </div>
+</body>
+</html>
