@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        body{
+            display: flex;
+        }
+
+        .esquerda{
+            background-color: lightgreen;
+            height: 100vh;
+            width: 50%;
+        }
+
+        .direita {
+            background-color: lightcoral;
+            height: 100vh;
+            width: 50%;
+        }
+
+        .item {
+            font-size: 40px;
+            background-color: darkgray;
+            margin: 10px;
+            padding: 30px;
+            text-align: center;
+        }
+        .organizar {
+            align-self: flex-end;
+            padding: 10px 25px;
+            position: absolute;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div dropzone class="esquerda">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+    </div>
+    <div dropzone class="direita"></div>
+    <button class="organizar">Ordenar</button>
+    <script>
+        const items = document.querySelectorAll('[dropzone] .item');
+
+        items.forEach((item,index) => {
+
+            item.draggable = true;
+
+            item.id = item.id || `draggable-item-${index}`;
+
+            item.ondragstart = e => {
+                e.dataTransfer.setData('item-id',e.target.id);
+            }
+
+            const dropzones = document.querySelectorAll('[dropzone]');
+
+            dropzones.forEach(dropzone => {
+
+                dropzone.ondragover = e => e.preventDefault();
+
+                dropzone.ondrop = e => {
+                    const id = e.dataTransfer.getData('item-id');
+                    const item = document.getElementById(id);
+                    dropzone.appendChild(item);
+                }
+
+            });
+
+        });
+
+        const btn = document.querySelector('.organizar');
+
+        btn.onclick = e => {
+            e.preventDefault();
+            const itens = Array.from(items);
+            const dropzones = document.querySelectorAll('[dropzone]');
+
+            dropzones.forEach(dropzone => {
+                const itens = Array.from(dropzone.children);
+                const ids = [];
+                const newItens = [];
+                
+                itens.forEach(item => {
+                    ids.push(item.getAttribute('id'));
+                })
+
+                ids.sort();
+
+                ids.forEach(id => {
+                    newItens.push(document.getElementById(id));
+                })
+
+                itens.forEach(item => {
+                    dropzone.removeChild(item);
+                })
+
+                newItens.forEach(item => {
+                    dropzone.appendChild(item)
+                })
+
+               
+
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        *{
+            box-sizing: border-box;
+        }
+
+        body {
+           margin: 0;
+           display: flex; 
+        }
+
+        .esquerda {
+            display: flex;
+            flex-flow: column nowrap;
+            width: 50%;
+            background-color: lightcoral;
+            border-right: 2px solid black;
+        }
+
+        .direita {
+            display: flex;
+            flex-flow: column nowrap;
+            width: 50%;
+            background-color: lightgreen;
+        }
+
+        .item {
+            flex-basis: 300px;
+            border: 5px solid black;
+            margin: 10px;
+            background-color: black;
+            color: white;
+        }
+
+        .item {
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+
+        .direita h2 {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 40px;
+            text-align: center;
+        }
+
+        .one {
+            background-image: url("https://wallpapercave.com/wp/wp8328192.jpg");
+        }
+
+        .two {
+            background-image: url("https://wallpaperaccess.com/full/408920.png");
+        }
+        .three {
+            background-image: url("https://eskipaper.com/images/iron-man-wallpaper-hd-21.jpg");
+        }
+
+        .four {
+            background-image: url("https://images7.alphacoders.com/103/thumbbig-1038512.webp");
+        }
+
+        .five {
+            background-image: url("https://cdn.wallpapersafari.com/29/47/T1rI7a.jpg");
+        }
+
+        @media(max-width:660px){
+
+            .item {   
+                background-position: top center;            
+            }
+
+            .one {
+                background-image: url("https://wallpapercave.com/wp/wp5978348.jpg");
+                background-position: center center; 
+            }
+
+            .two {
+                background-image: url("https://i.pinimg.com/originals/17/60/0c/17600c7bd24f705e84a7734c9a5915b8.jpg");            }
+
+
+            .three {
+                background-image: url("https://i.pinimg.com/originals/a5/77/dc/a577dcd1661a0d18d51e8553cd3fb115.jpg");
+
+            }
+
+            .four {
+                background-image: url("https://p4.wallpaperbetter.com/wallpaper/145/385/238/davidson-fire-ghost-ghost-rider-wallpaper-preview.jpg");
+            }
+
+            .five {
+                background-image: url("https://www.teahub.io/photos/full/12-128118_wolverine-wallpaper-best-wolverine-wallpaper-id-marvel-wolverine.jpg");
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="esquerda" wm-dropzone>
+
+        <div class="item one"></div>
+
+        <div class="item two"></div>
+
+        <div class="item three"></div>
+
+        <div class="item four"></div>
+
+        <div class="item five"></div>
+    </div>
+    <div class="direita" wm-dropzone>
+        <h2>My favorite hero:</h2>
+    </div>
+    <script>
+        const items = document.querySelectorAll('[wm-dropzone] .item');
+
+        items.forEach((item,index) => {
+            item.draggable = true;
+
+            item.id = item.id || `draggable-item-${index}`;
+
+            item.ondragstart = e => {
+                e.dataTransfer.setData('item-id',e.target.id);
+            }
+
+            const dropzones = document.querySelectorAll('[wm-dropzone]');
+
+            dropzones.forEach(dropzone => {
+
+                dropzone.ondragover = e => e.preventDefault();
+
+                dropzone.ondrop = e => {
+                    const id = e.dataTransfer.getData('item-id');
+                    const item = document.getElementById(id);
+                    dropzone.appendChild(item);
+                }
+            })
+        });
+    </script>
+</body>
+</html>

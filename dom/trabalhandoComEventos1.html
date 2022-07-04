@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Trabalhando com Eventos #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+    <div>
+        <a wait="2" href="https://google.com.br">Google</a>
+    </div>
+    <script>
+
+        /* 
+        
+        function navegarEm5s(e) {
+
+            e.preventDefault();
+            console.log('Saindo em 5s...');
+            setTimeout(() => {
+
+                const link = e.target -> link pra onde o evento está destinado a direcionar
+
+                window.location.href = link.href -> url da barra de endereço do browser
+
+
+            },5000);
+
+            const a = document.querySelector('[wait]');
+            a.onclick = navegarEm5s
+
+        }
+        
+        
+        */
+
+       
+       
+       function waitFor(e){
+            const seconds = document.querySelector('[wait]');
+            e.preventDefault();
+            setTimeout(()=>{
+                
+                const link = e.target;
+                window.location.href = link.href;
+                
+            },seconds.getAttribute('wait')*1000);
+        }
+        
+        const a = document.querySelector('[wait]');
+        a.onclick = waitFor;
+        
+        </script>
+</body>
