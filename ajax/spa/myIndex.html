@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Mini SPA</title>
+    <link rel='stylesheet' href='../css/estilo.css'>
+    <style>
+        nav {
+            font-size: 2em;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #FFF;
+            padding: 0 10px;
+        }
+    </style>
+</head>
+
+<body class="conteudo">
+    <nav>
+        <a href wm-link="series.html" wm-destino=".pagina">Séries</a> |
+        <a href wm-link="linguagens.html" wm-destino=".pagina">Linguagens</a>
+    </nav>
+    <div class="pagina"></div>
+    <script>
+        
+    const series = document.querySelector('[wm-link="series.html"]');
+    const linguagens = document.querySelector('[wm-link="linguagens.html"]');
+
+    series.onclick = e => {
+        e.preventDefault();
+        const itens = fetch(series.getAttribute('wm-link'))
+            .then(res => res.text())
+            .then(res => {
+
+                const html = document.querySelector('.pagina');
+                const link = e.target.getAttribute('wm-link');
+                
+                if(!html.hasAttribute('wm-link')){
+
+                    html.setAttribute('wm-link',link);
+                    html.insertAdjacentHTML('beforeend',res);
+
+                } else if(html.getAttribute('wm-link') !== link){
+
+                    html.replaceChildren();
+                    html.setAttribute('wm-link',link);
+                    html.insertAdjacentHTML('beforeend',res)
+
+                } else {
+
+                    html.removeAttribute('wm-link');
+                    html.replaceChildren();
+                    
+                }
+
+            });
+
+    }
+
+    linguagens.onclick = e => {
+        e.preventDefault();
+        const itens = fetch(linguagens.getAttribute('wm-link'))
+            .then(res => res.text())
+            .then(res => {
+
+                const html = document.querySelector('.pagina');
+                const link = e.target.getAttribute('wm-link');
+                
+                if(!html.hasAttribute('wm-link')){
+
+                    html.setAttribute('wm-link',link);
+                    html.insertAdjacentHTML('beforeend',res);
+
+                } else if(html.getAttribute('wm-link') !== link){
+
+                    html.replaceChildren();
+                    html.setAttribute('wm-link',link);
+                    html.insertAdjacentHTML('beforeend',res)
+
+                } else {
+
+                    html.removeAttribute('wm-link');
+                    html.replaceChildren();
+                    
+                }
+
+            });
+    }
+
+    </script>
+</body>

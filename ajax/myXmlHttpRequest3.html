@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>XMLHttpRequest #03</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <style> 
+        img {
+            width: 50%;
+            height: 50%;
+        }
+    </style>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Estados</h1>
+    <script>
+        function ajax(config){
+
+            const xhr = new XMLHttpRequest();
+
+            xhr.open(config.metodo,config.url,true);
+
+            //https://developer.mozilla.org/pt-BR/docs/Web/API/XMLHttpRequest/readystatechange_event 
+            xhr.onreadystatechange = e => {
+                
+                if(xhr.readyState === 4) {
+
+                    if(xhr.status === 200){
+
+                        //https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/responseXML
+                        config.sucesso(xhr.responseXML || xhr.response);
+
+                    } else if(xhr.status >= 400) {
+
+                        config.erro({
+                            code: xhr.status,
+                            text: xhr.statusText
+                        });
+
+                    }
+
+                }
+
+            }
+
+            xhr.send();
+
+        }
+
+        function criarLista(estados){
+
+            const itens = estados.map(estado => {
+
+                const li = document.createElement('li');
+
+                li.innerHTML = `${estado.id}. ${estado.nome} (${estado.sigla})`;       
+                
+                return li;
+
+            });
+
+            const ol = document.createElement('ul');
+            ol.setAttribute('type','none')
+
+            itens.forEach(li => {
+                
+                ol.appendChild(li);
+
+            });
+
+            document.body.appendChild(ol);
+
+        };
+
+        ajax({
+            url:'dados/estados.xml',
+            metodo:'get',
+            sucesso(res){
+
+                const estados = res.getElementsByTagName('estados')[0];
+                const lista = [];    
+
+                Array.from(estados.children).forEach(estado => {
+
+                    const id = estado.getAttribute('id');
+                    const nome = estado.getAttribute('nome');
+                    const sigla = estado.getAttribute('sigla');
+
+                    lista.push({id,nome,sigla});
+                    
+                });
+
+                criarLista(lista);
+
+            },
+            erro(res){
+
+                const msg = document.createTextNode(`${res.code}:${res.text}`);
+
+                document.body.appendChild(msg);
+
+            }
+        });
+
+        ajax({
+            url:'dados/img.html',
+            metodo:'get',
+            sucesso(res){
+
+                const img = res;
+                console.log(img)
+                document.body.insertAdjacentHTML('beforeend',res);
+
+
+            },
+            erro(res){
+
+                const msg = document.createTextNode(`${res.code}:${res.text}`);
+                document.body.appendChild(msg);
+
+            }
+        });
+
+    </script>
+</body>

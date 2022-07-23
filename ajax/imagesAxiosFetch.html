@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/axios.js"></script>
+    <style>
+        body{
+            text-align: center;
+        }
+        img {
+            width: 50%;
+            margin: 20px auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+       <h1>Teste</h1> 
+       <script>
+
+            // capturando imagem com fetch
+            fetch('images/1172195.jpg')
+                .then( res => res.url)
+                .then( res => {
+
+                    const img = document.createElement('img');
+                    img.setAttribute('src',res);
+
+                    document.body.appendChild(img)
+
+
+                })
+                .catch(err => console.log(err + 'blz'));
+
+             // capturando imagem com axios       
+             axios('images/1172195.jpg')
+                .then(res => {
+                    const img = document.createElement('img');
+                    img.setAttribute('src',res.config.url);
+
+                    document.body.appendChild(img)
+                })   
+
+       </script>
+</body>
+</html>

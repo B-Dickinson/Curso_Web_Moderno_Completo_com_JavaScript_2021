@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>XMLHttpRequest #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Estados</h1>
+
+    <script>
+    
+        function ajax(config){
+
+            const xhr = new XMLHttpRequest();
+
+            xhr.open(config.method,config.url);
+
+            xhr.onload = e => {
+
+                if(xhr.status === 200){
+                    config.then(xhr.response);
+                } else if(xhr.status >= 400){
+                    config.catch({
+                        code: xhr.status,
+                        text: xhr.statusText
+                    });
+                }
+
+            }
+
+            xhr.send();
+
+        }
+
+        function createTable(states){
+
+            const rows = states.map(state => {
+
+                const id = document.createElement('td');
+                const name = document.createElement('td');
+                const initials = document.createElement('td');
+
+                id.innerHTML = state.id + '.';
+                name.innerHTML = state.nome;
+                initials.innerHTML = `(${state.sigla})`;
+
+                const tr = document.createElement('tr');
+
+                tr.appendChild(id);
+                tr.appendChild(name);
+                tr.appendChild(initials);
+
+                return tr;
+
+            }); 
+
+            const table = document.createElement('table');
+            rows.forEach(row => table.appendChild(row));
+            document.body.appendChild(table);
+
+        }
+
+        ajax({
+            url:'dados/estados.json',
+            method: 'GET',
+            then(answer){
+
+                const estados = JSON.parse(answer);
+                createTable(estados);
+
+            },
+            catch(e){
+                const text = document.createTextNode(`${e.code}:${e.text}`);
+                document.body.appendChild(text);
+            }
+        });
+
+    </script>
+</body>

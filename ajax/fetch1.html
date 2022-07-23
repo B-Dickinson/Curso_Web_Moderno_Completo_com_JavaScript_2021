@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Fetch API #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <style>
+        ul {
+            list-style-type: none;
+        }
+    </style>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Estados</h1>
+
+    <script>
+            
+        fetch('dados/estados.json')
+            .then(res => res.json())
+            .then(res => {
+        
+                const itens = Array.from(res).reduce(
+                    (html,estado)=>html+`<li>${estado.id}. ${estado.nome} ( ${estado.sigla} )</li>`,''
+                );
+
+                document.body.insertAdjacentHTML('beforeend',`<ul>${itens}</ul>`);
+
+        }).catch(err => {
+
+            const msg = document.createElement('p')
+            msg.innerHTML = 'Arquivo não encontrado :(';
+
+            document.body.appendChild(msg);
+
+        }); 
+
+    </script>
+</body>
